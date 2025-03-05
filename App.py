@@ -21,8 +21,12 @@ st.markdown(
 )
 
 # Definição dos parâmetros
-ACCESS_TOKEN ="EAAQMPKyml7oBO6jKJEUCVfwdBC9c3NDiutPMXa78kr4ZB5Ux3iMotQaLC31TTd5OUzhjcZB1gi1xPgQ7ebk7T9JdofDcgXe6zOeM6YxrZAPIPpuDlvQwB9kVNBGkoH2rsdgFModgZBAT7HOrNxTZAZBPTAZBJItZBpZAX8yYPlfFD8TRXCgeWv3but3tl5V3aZAWZAVzzniOtgVZCl7SEf86"
-ACCOUNT_ID ="act_3675266962784994"
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Carregar variáveis do .env
+FB_ACCESS_TOKEN=ACCESS_TOKEN ="EAAQMPKyml7oBO6jKJEUCVfwdBC9c3NDiutPMXa78kr4ZB5Ux3iMotQaLC31TTd5OUzhjcZB1gi1xPgQ7ebk7T9JdofDcgXe6zOeM6YxrZAPIPpuDlvQwB9kVNBGkoH2rsdgFModgZBAT7HOrNxTZAZBPTAZBJItZBpZAX8yYPlfFD8TRXCgeWv3but3tl5V3aZAWZAVzzniOtgVZCl7SEf86"
+FB_APP_ID=ACCOUNT_ID ="act_3675266962784994"
 
 # Seleção de datas
 data_inicial = st.date_input("Data Inicial", datetime.now().replace(day=1))
