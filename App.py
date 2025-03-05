@@ -4,6 +4,16 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
+import sys
+
+# Verificar se o Plotly está instalado corretamente
+print(sys.path)  # Verifique os caminhos onde o Python procura pacotes
+
+try:
+    import plotly.express as px
+    print("Plotly carregado com sucesso!")
+except ImportError as e:
+    print(f"Erro ao importar o Plotly: {e}")
 
 # Configuração da página para ocupar mais espaço
 st.set_page_config(layout="wide")
