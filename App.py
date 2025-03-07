@@ -1,4 +1,46 @@
 import streamlit as st
+
+# Configuração da página
+st.set_page_config(layout="wide")
+
+# Definir o estilo CSS para o fundo da página
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #f0f0f5;
+        background-image: url('https://preview.redd.it/c3uhsgo1vx541.jpg?width=1080&crop=smart&auto=webp&s=4e8b7c2a4d4caa08054e7f0d0367b1b5c1d7cfda');
+        background-size: cover;
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
+# Dicionário de usuários e senhas (para teste, use algo mais seguro em produção)
+USERS = {"admin": "allpost123", "user": "allpost123"}
+
+# Função de autenticação
+def check_login():
+    st.title("🔐 Login")
+    username = st.text_input("Usuário")
+    password = st.text_input("Senha", type="password")
+    login_button = st.button("Entrar")
+
+    if login_button:
+        if username in USERS and USERS[username] == password:
+            st.session_state["logged_in"] = True
+            st.session_state["username"] = username
+            st.rerun()  # Atualiza a página após login
+
+        else:
+            st.error("❌ Usuário ou senha incorretos!")
+
+# Se não estiver logado, exibir tela de login
+if "logged_in" not in st.session_state or not st.session_state["logged_in"]:
+    check_login()
+    st.stop()  # Interrompe a execução para impedir acesso sem login
+
+import streamlit as st
 import requests
 import pandas as pd
 import plotly.express as px
@@ -175,6 +217,48 @@ if st.button("📥 Carregar Dados", use_container_width=True):
             with col2:
                 st.dataframe(df[['campaign_name', 'clicks']].rename(columns={'campaign_name': 'Campanha', 'clicks': 'Cliques'}), height=500)
             
+            import streamlit as st
+            import pandas as pd
+            import plotly.express as px
+
+# Dados das cidades e estados
+            locations = {
+    'Cidade': ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Brasília', 'Curitiba'],
+    'Estado': ['SP', 'RJ', 'MG', 'DF', 'PR'],
+    'Latitude': [-23.550520, -22.906847, -19.815710, -15.780148, -25.428954],
+    'Longitude': [-46.633308, -43.172896, -43.958702, -47.929222, -49.267137],
+    'Atividade': [100, 150, 120, 90, 80]  # Número de interações
+}
+
+            df_locations = pd.DataFrame(locations)
+
+# Criando um mapa focado no Brasil com tons verdes
+            fig_map = px.scatter_mapbox(
+    df_locations,
+    lat="Latitude",
+    lon="Longitude",
+    text="Cidade",
+    hover_name="Cidade",
+    hover_data={"Estado": True, "Atividade": True},
+    size="Atividade",
+    color="Atividade",
+    color_continuous_scale=[(0, "#4B0082"), (1, "#9400D3")],  # Escala de cores em tons verdes
+    zoom=4.5,  # Ajustando o zoom para focar melhor no Brasil
+    mapbox_style="open-street-map"  # Estilo verde e detalhado
+)
+
+            fig_map.update_layout(
+    title="🗺️ Mapa de Atividades - Foco no Brasil 🌿",
+    margin={"r":0,"t":50,"l":0,"b":0}
+)
+
+# Exibir no Streamlit
+            st.write("### 🗺️ Mapa Interativo de Atividades por Estado 🌿")
+            st.plotly_chart(fig_map, use_container_width=True)
+
+
+
+
         else:
             st.write("❌ Nenhum dado encontrado.")
     else:
