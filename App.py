@@ -1,21 +1,5 @@
 import streamlit as st
 
-# Configuração da página
-st.set_page_config(layout="wide")
-
-# Definir o estilo CSS para o fundo da página
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: #f0f0f5;
-        background-image: url('https://preview.redd.it/c3uhsgo1vx541.jpg?width=1080&crop=smart&auto=webp&s=4e8b7c2a4d4caa08054e7f0d0367b1b5c1d7cfda');
-        background-size: cover;
-    }
-    </style>
-    """, unsafe_allow_html=True
-)
-
 # Dicionário de usuários e senhas (para teste, use algo mais seguro em produção)
 USERS = {"admin": "allpost123", "user": "allpost123"}
 
