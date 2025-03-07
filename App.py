@@ -241,6 +241,8 @@ if st.button("📥 Carregar Dados", use_container_width=True):
             st.plotly_chart(fig_map, use_container_width=True)
 
 
+
+
         else:
             st.write("❌ Nenhum dado encontrado.")
     else:
