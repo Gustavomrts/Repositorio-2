@@ -51,7 +51,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()  # Carregar variáveis do .env
-FB_ACCESS_TOKEN=ACCESS_TOKEN ="EAAYvqfxZACz4BO368kwZBZBb4ZBSGZCCyXb9sSJw8CfvduZBVLY2DgLYCkFU5mgdP5qjA13F7WNIYiV7tG6xLhNtHIXVoZBGfMiGiZCZCPMHes4yIWRA6OnAnzn3fa4eKOZC1UDMltLVqiT5U39lHYVW69TU4LwCFK8eJF7WmDS6hZCLFFY1jRWhgL1q96shP67A8AlZAWBXRPUaZBKys7RIaJpI0kyGl3W2TPkRmMgZDZD"
+FB_ACCESS_TOKEN=ACCESS_TOKEN ="EAAYLqxc8nXYBOwBWQ2lR1hLRGXSqpPWlGEeUcdJQkJZBToxjg7agxhyAsLeO1aOy45hJkaWlzq5dFZAt4r0JPoOLQsk9kgxOWWl49JZAhvNfiBZB8cw0suGbYDsqAsHOXKUKB1x16646i26CZBebqVjHwnX0qmQoK8wASRaxVBu7Qnn6EXk5XEN73WZAaXpruDikpt5ffXn4o9IlMg"
 FB_APP_ID=ACCOUNT_ID ="act_672429295523142"
 
 # Seleção de datas
@@ -59,7 +59,7 @@ data_inicial = st.date_input("Data Inicial", datetime.now().replace(day=1))
 data_final = st.date_input("Data Final", datetime.now())
 
 # Interface Streamlit
-st.title("📊 ALLPOST Facebook Ads - Dashboard")
+st.title("📊 Facebook Ads - Dashboard")
 st.write("Clique no botão para carregar os dados.")
 
 if st.button("📥 Carregar Dados", use_container_width=True):
